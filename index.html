@@ -236,7 +236,7 @@ nav{
   flex-wrap:wrap;
 }
 .ti{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.9);font-size:0.88rem;font-weight:500;}
-.ti-icon{font-size:1.2rem;}
+.ti-icon{font-size:1.2rem;color:#FBBF24;letter-spacing:2px;}
 .ti-sep{width:1px;height:20px;background:rgba(255,255,255,0.25);}
 
 /* ── SECTIONS ── */
@@ -352,6 +352,50 @@ nav{
 .price-info-box p{font-size:0.87rem;color:#0369A1;line-height:1.9;}
 .price-info-box strong{font-weight:700;}
 
+/* ── NOTICE ── */
+.notice-sec{background:var(--off);}
+.notice-box{
+  background:#fff;border-radius:20px;
+  border:2px solid #E8D5B7;
+  overflow:hidden;
+  margin-top:48px;
+  box-shadow:0 8px 40px rgba(15,27,45,0.06);
+}
+.notice-header{
+  background:linear-gradient(135deg,#7B4F1E,#A0622A);
+  padding:28px 40px;text-align:center;
+}
+.notice-header .sub{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:6px;letter-spacing:0.06em;}
+.notice-header h3{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-0.01em;}
+.notice-header h3 em{font-style:normal;color:#FFE08A;}
+.notice-body{padding:36px 40px;}
+.notice-item{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px 0;
+  border-bottom:1px dashed #E8D5B7;
+}
+.notice-item:last-child{border-bottom:none;padding-bottom:0;}
+.notice-num{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,#7B4F1E,#A0622A);
+  color:#fff;font-weight:800;font-size:0.88rem;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.notice-text{font-size:0.92rem;color:#374151;line-height:1.85;}
+.notice-text mark{background:#FFF176;padding:1px 3px;border-radius:3px;font-weight:700;color:#374151;}
+.notice-text .sub-note{display:block;font-size:0.83rem;color:var(--gray);margin-top:6px;}
+.notice-footer{
+  background:#FEF3C7;border-top:2px solid #E8D5B7;
+  padding:18px 40px;text-align:center;
+  font-size:0.88rem;color:#92400E;font-weight:600;line-height:1.7;
+}
+@media(max-width:640px){
+  .notice-header{padding:22px 24px;}
+  .notice-body{padding:24px 20px;}
+  .notice-footer{padding:16px 20px;}
+}
+
 /* ── REVIEWS ── */
 .review-sec{background:var(--off);}
 .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;}
@@ -396,6 +440,82 @@ nav{
 .fa{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:0.87rem;color:var(--gray);line-height:1.8;}
 .fi.open .fa{max-height:200px;padding:0 20px 17px;}
 .fi.open .fi-icon{background:var(--navy);color:#fff;transform:rotate(45deg);}
+
+/* ── CONTACT FORM ── */
+.contact-sec{background:var(--off);padding:96px 5%;}
+.contact-sec .sec-wrap{max-width:760px;}
+.cf-box{
+  background:#fff;border-radius:20px;padding:48px;
+  border:1px solid var(--light);
+  box-shadow:0 8px 40px rgba(15,27,45,0.06);
+  margin-top:48px;
+}
+.cf-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-bottom:20px;
+}
+.cf-row.full{grid-template-columns:1fr;}
+.cf-group{display:flex;flex-direction:column;gap:6px;}
+.cf-label{
+  font-size:0.82rem;font-weight:700;color:var(--text);
+  letter-spacing:0.02em;
+}
+.cf-label span{color:#EF4444;margin-left:2px;}
+.cf-input, .cf-select, .cf-textarea{
+  border:1.5px solid var(--light);
+  border-radius:10px;padding:13px 16px;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:0.9rem;color:var(--text);
+  background:#fff;
+  transition:border-color .2s,box-shadow .2s;
+  outline:none;width:100%;
+}
+.cf-input:focus,.cf-select:focus,.cf-textarea:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(26,86,219,0.08);
+}
+.cf-select{cursor:pointer;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748B' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;}
+.cf-textarea{resize:vertical;min-height:120px;line-height:1.7;}
+.cf-phone-row{display:grid;grid-template-columns:140px 1fr 1fr;gap:10px;}
+.cf-privacy{
+  display:flex;flex-direction:column;gap:8px;
+  margin:20px 0;padding:16px 20px;
+  background:#F8FAFC;border-radius:10px;
+  border:1px solid var(--light);
+  font-size:0.83rem;color:var(--gray);
+}
+.cf-privacy-title{
+  font-size:0.83rem;font-weight:700;color:var(--text);
+  text-decoration:underline;cursor:pointer;
+  display:inline-block;margin-bottom:4px;
+}
+.cf-radio-group{display:flex;flex-direction:column;gap:8px;}
+.cf-radio{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.88rem;color:var(--text);}
+.cf-radio input{width:17px;height:17px;accent-color:var(--blue);cursor:pointer;}
+.cf-submit{
+  width:100%;padding:17px;border-radius:12px;
+  background:var(--navy);border:none;
+  color:#fff;font-family:'Noto Sans KR',sans-serif;
+  font-size:1rem;font-weight:700;letter-spacing:0.03em;
+  cursor:pointer;transition:background .2s,transform .15s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.cf-submit:hover{background:#1A2E4A;transform:translateY(-2px);}
+.cf-submit:disabled{background:#94A3B8;cursor:not-allowed;transform:none;}
+.cf-msg{
+  margin-top:16px;padding:14px 18px;border-radius:10px;
+  font-size:0.88rem;font-weight:600;text-align:center;display:none;
+}
+.cf-msg.success{background:#DCFCE7;color:#166534;border:1px solid #BBF7D0;display:block;}
+.cf-msg.error{background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;display:block;}
+@media(max-width:640px){
+  .cf-box{padding:28px 20px;}
+  .cf-row{grid-template-columns:1fr;}
+  .cf-phone-row{grid-template-columns:1fr 1fr;row-gap:10px;}
+  .cf-phone-row .cf-select{grid-column:1/-1;}
+}
 
 /* ── CTA ── */
 .cta-sec{
@@ -453,39 +573,29 @@ footer{background:#080E17;padding:40px 5%;}
 .fi-text a:hover{color:var(--gold);}
 
 /* ── FLOAT ── */
-.float-wrap{position:fixed;bottom:24px;right:24px;z-index:990;display:flex;flex-direction:column;gap:10px;align-items:flex-end;}
+.float-wrap{
+  position:fixed;bottom:0;left:0;right:0;z-index:990;
+  display:flex;flex-direction:row;
+  box-shadow:0 -4px 20px rgba(0,0,0,0.15);
+}
+.fb-call, .fb-kakao, .fb-blog{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:16px 8px;
+  font-weight:800;font-size:0.88rem;text-decoration:none;
+  transition:filter .2s;
+}
+.fb-call:hover,.fb-kakao:hover,.fb-blog:hover{filter:brightness(1.1);}
 .fb-call{
-  display:flex;align-items:center;gap:10px;
   background:linear-gradient(135deg,var(--gold),#FBBF24);
-  color:#0F1B2D;padding:12px 20px 12px 16px;border-radius:50px;
-  font-weight:800;font-size:0.92rem;text-decoration:none;
-  box-shadow:0 6px 24px rgba(245,158,11,0.45);
+  color:#0F1B2D;
   animation:glow 2.5s infinite;
-  transition:transform .2s;
 }
-.fb-call:hover{transform:scale(1.04);}
-@keyframes glow{0%,100%{box-shadow:0 6px 24px rgba(245,158,11,0.45);}50%{box-shadow:0 6px 36px rgba(245,158,11,0.7);}}
-.fb-kakao{
-  display:flex;align-items:center;gap:10px;
-  background:#FEE500;color:#3A1D1D;
-  padding:12px 20px 12px 16px;border-radius:50px;
-  font-weight:800;font-size:0.92rem;text-decoration:none;
-  box-shadow:0 6px 24px rgba(254,229,0,0.45);
-  transition:transform .2s,box-shadow .2s;
-}
-.fb-kakao:hover{transform:scale(1.04);box-shadow:0 8px 28px rgba(254,229,0,0.6);}
-.fb-blog{
-  display:flex;align-items:center;gap:10px;
-  background:#03C75A;color:#fff;
-  padding:12px 20px 12px 16px;border-radius:50px;
-  font-weight:800;font-size:0.92rem;text-decoration:none;
-  box-shadow:0 6px 24px rgba(3,199,90,0.4);
-  transition:transform .2s,box-shadow .2s;
-}
-.fb-blog:hover{transform:scale(1.04);box-shadow:0 8px 28px rgba(3,199,90,0.55);}
-.fb-icon{width:36px;height:36px;border-radius:50%;background:#0F1B2D;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
-.fb-kakao .fb-icon{background:rgba(58,29,29,0.12);}
-.fb-blog .fb-icon{background:rgba(255,255,255,0.2);}
+@keyframes glow{0%,100%{box-shadow:inset 0 0 0 rgba(245,158,11,0);}50%{box-shadow:inset 0 0 12px rgba(245,158,11,0.3);}}
+.fb-kakao{background:#FEE500;color:#3A1D1D;}
+.fb-blog{background:#03C75A;color:#fff;}
+.fb-icon{font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
+/* footer padding so content isn't hidden behind bar */
+footer{padding-bottom:60px;}
 
 /* ── MOBILE ── */
 @media(max-width:860px){
@@ -518,6 +628,7 @@ footer{background:#080E17;padding:40px 5%;}
     <a href="#price">비용</a>
     <a href="#reviews">후기</a>
     <a href="#faq">FAQ</a>
+    <a href="#contact" style="color:var(--gold);font-weight:700;">상담신청</a>
   </div>
   <a href="tel:010-6830-8988" class="nc">📞 010-6830-8988</a>
 </nav>
@@ -709,7 +820,7 @@ footer{background:#080E17;padding:40px 5%;}
     <div class="ti-sep"></div>
     <div class="ti"><span class="ti-icon">🗓</span>원하는 날짜 자유 조율</div>
     <div class="ti-sep"></div>
-    <div class="ti"><span class="ti-icon">⭐</span>고객 만족도 100%</div>
+    <div class="ti"><span class="ti-icon">★★★★★</span>고객 만족도</div>
   </div>
 </div>
 
@@ -844,6 +955,54 @@ footer{background:#080E17;padding:40px 5%;}
   </div>
 </section>
 
+<!-- NOTICE -->
+<section class="section notice-sec" id="notice">
+  <div class="sec-wrap">
+    <div class="tag rev">수업 안내</div>
+    <h2 class="sec-title rev">수업 시 꼭 지켜주세요!</h2>
+    <p class="sec-sub rev">원활한 수업 진행을 위해 미리 확인해 주시면 감사하겠습니다.</p>
+
+    <div class="notice-box rev">
+      <div class="notice-header">
+        <div class="sub">M드라이브 운전연수 전달사항입니다</div>
+        <h3>수업 시 <em>꼭 지켜주세요!</em></h3>
+      </div>
+      <div class="notice-body">
+        <div class="notice-item">
+          <div class="notice-num">1</div>
+          <div class="notice-text">
+            수업은 <mark>1시간 기준 50분 수업, 10분 휴식</mark>으로 진행됩니다.
+          </div>
+        </div>
+        <div class="notice-item">
+          <div class="notice-num">2</div>
+          <div class="notice-text">
+            연수 교육 중 발생하는 <mark>주차비 및 고속도로 톨게이트 비용은 수강생 부담</mark>입니다.
+            <span class="sub-note">※ 대여 차량 이용 시 비용은 별도 문의</span>
+          </div>
+        </div>
+        <div class="notice-item">
+          <div class="notice-num">3</div>
+          <div class="notice-text">
+            수강 시간 변경은 <mark>수업 시작 24시간 전까지 전달</mark>해 주셔야 합니다.
+            <span class="sub-note">※ 당일 일정 취소 또는 변경 시에는 <strong>해당 교육 시간이 소멸</strong>되는 점 양해 부탁드립니다.</span>
+          </div>
+        </div>
+        <div class="notice-item">
+          <div class="notice-num">4</div>
+          <div class="notice-text">
+            연수 비용은 <mark>첫 연수 진행 후 지불</mark>해 주시면 됩니다.
+            <span class="sub-note">아래 계좌로 입금 부탁드립니다. (계좌번호는 상담 시 안내드립니다.)</span>
+          </div>
+        </div>
+      </div>
+      <div class="notice-footer">
+        보다 원활한 수업 진행을 위해 안내드리는 사항이오니, 미리 확인해 주시면 감사하겠습니다.
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="section review-sec" id="reviews">
   <div class="sec-wrap">
@@ -876,6 +1035,85 @@ footer{background:#080E17;padding:40px 5%;}
       <div class="fi rev"><div class="fq" onclick="tFaq(this)">장롱면허인데 바로 시작할 수 있나요? <div class="fi-icon">+</div></div><div class="fa">물론입니다. 처음엔 조용한 도로부터 단계적으로 진행하니 걱정 마세요. 10년 장롱면허도 문제없습니다.</div></div>
       <div class="fi rev"><div class="fq" onclick="tFaq(this)">대차 이용 시 나이 제한이 있나요? <div class="fi-icon">+</div></div><div class="fa">만 26세 이상은 기본 보험이 적용됩니다. 만 26세 이하는 추가 보험비가 별도 발생하니 상담 시 안내해 드립니다.</div></div>
       <div class="fi rev"><div class="fq" onclick="tFaq(this)">어떻게 예약하나요? <div class="fi-icon">+</div></div><div class="fa">블로그 댓글, 전화(010-6830-8988), 문자, 오픈카톡으로 접수 가능합니다. 원하는 날짜와 시간을 말씀해 주시면 조율해 드립니다.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-sec" id="contact">
+  <div class="sec-wrap">
+    <div class="tag rev">상담 신청</div>
+    <h2 class="sec-title rev">온라인 상담 신청</h2>
+    <p class="sec-sub rev">아래 양식을 작성해 주시면 빠르게 연락드리겠습니다.<br>24시간 접수 가능 · 원하는 날짜 자유 조율</p>
+
+    <div class="cf-box rev">
+      <div class="cf-row">
+        <div class="cf-group">
+          <label class="cf-label">이름<span>*</span></label>
+          <input type="text" id="cf-name" class="cf-input" placeholder="성명을 정확하게 입력해 주세요">
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">연락처<span>*</span></label>
+          <div class="cf-phone-row">
+            <select id="cf-tel1" class="cf-select">
+              <option value="">선택</option>
+              <option value="010">010</option>
+              <option value="011">011</option>
+              <option value="016">016</option>
+              <option value="017">017</option>
+              <option value="019">019</option>
+            </select>
+            <input type="text" id="cf-tel2" class="cf-input" placeholder="0000" maxlength="4">
+            <input type="text" id="cf-tel3" class="cf-input" placeholder="0000" maxlength="4">
+          </div>
+        </div>
+      </div>
+
+      <div class="cf-row">
+        <div class="cf-group">
+          <label class="cf-label">연수 지역</label>
+          <select id="cf-region" class="cf-select">
+            <option value="">지역을 선택해 주세요</option>
+            <option value="오산">오산</option>
+            <option value="동탄">동탄</option>
+            <option value="병점">병점</option>
+            <option value="수원">수원</option>
+            <option value="용인">용인</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">희망 과정</label>
+          <select id="cf-course" class="cf-select">
+            <option value="">과정을 선택해 주세요</option>
+            <option value="5시간 연수">5시간 연수</option>
+            <option value="10시간 연수">10시간 연수</option>
+            <option value="20시간 연수">20시간 연수</option>
+            <option value="상담 후 결정">상담 후 결정</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cf-row full">
+        <div class="cf-group">
+          <label class="cf-label">문의 내용</label>
+          <textarea id="cf-message" class="cf-textarea" placeholder="연수 관련 문의 사항이나 요청 사항을 자유롭게 작성해 주세요."></textarea>
+        </div>
+      </div>
+
+      <div class="cf-privacy">
+        <span class="cf-privacy-title">[개인정보 수집·이용 약관 자세히 보기]</span>
+        <p>수집 항목: 이름, 연락처 · 이용 목적: 상담 및 서비스 안내 · 보유 기간: 상담 완료 후 1년</p>
+        <div class="cf-radio-group">
+          <label class="cf-radio"><input type="radio" name="privacy" value="agree"> 개인정보 수집·이용에 동의합니다.</label>
+          <label class="cf-radio"><input type="radio" name="privacy" value="disagree"> 개인정보 수집·이용에 동의하지 않습니다.</label>
+        </div>
+      </div>
+
+      <button class="cf-submit" id="cf-btn" onclick="submitForm()">
+        <span id="cf-btn-text">문의하기 →</span>
+      </button>
+      <div class="cf-msg" id="cf-result"></div>
     </div>
   </div>
 </section>
@@ -918,19 +1156,19 @@ footer{background:#080E17;padding:40px 5%;}
   </div>
 </footer>
 
-<!-- FLOATING CALL -->
+<!-- BOTTOM BAR -->
 <div class="float-wrap">
-  <a href="https://blog.naver.com/mdrive8" target="_blank" class="fb-blog">
-    <div class="fb-icon">📝</div>
-    M드라이브 블로그
+  <a href="tel:010-6830-8988" class="fb-call">
+    <div class="fb-icon">📞</div>
+    상담전화
   </a>
   <a href="https://open.kakao.com/o/s7gSIZ5h" target="_blank" class="fb-kakao">
     <div class="fb-icon">💬</div>
-    오픈카톡 상담
+    카톡상담
   </a>
-  <a href="tel:010-6830-8988" class="fb-call">
-    <div class="fb-icon">📞</div>
-    010-6830-8988
+  <a href="https://blog.naver.com/mdrive8" target="_blank" class="fb-blog">
+    <div class="fb-icon">📝</div>
+    블로그
   </a>
 </div>
 
@@ -946,6 +1184,60 @@ function switchTab(name,btn){
   document.querySelectorAll('.curr-panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
+}
+async function submitForm(){
+  const name=document.getElementById('cf-name').value.trim();
+  const tel1=document.getElementById('cf-tel1').value;
+  const tel2=document.getElementById('cf-tel2').value.trim();
+  const tel3=document.getElementById('cf-tel3').value.trim();
+  const region=document.getElementById('cf-region').value;
+  const course=document.getElementById('cf-course').value;
+  const message=document.getElementById('cf-message').value.trim();
+  const privacy=document.querySelector('input[name="privacy"]:checked');
+  const btn=document.getElementById('cf-btn');
+  const btnText=document.getElementById('cf-btn-text');
+  const result=document.getElementById('cf-result');
+
+  result.className='cf-msg';result.style.display='none';
+
+  if(!name){alert('이름을 입력해 주세요.');return;}
+  if(!tel1||!tel2||!tel3){alert('연락처를 모두 입력해 주세요.');return;}
+  if(!privacy){alert('개인정보 수집·이용 동의 여부를 선택해 주세요.');return;}
+  if(privacy.value==='disagree'){alert('개인정보 수집·이용에 동의하셔야 상담 신청이 가능합니다.');return;}
+
+  btn.disabled=true;
+  btnText.textContent='전송 중...';
+
+  const phone=tel1+'-'+tel2+'-'+tel3;
+  const params=new URLSearchParams({
+    name,phone,region,course,message,
+    timestamp:new Date().toLocaleString('ko-KR')
+  });
+
+  try{
+    const res=await fetch('https://script.google.com/macros/s/AKfycbwO09R0SRhu2-KObIC3OcTvZiABA9HAU4BASN6_HXnWhNJx8bIw02Ct1oQCSbGLkCHHvw/exec',{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:params.toString()
+    });
+    result.textContent='✅ 상담 신청이 완료되었습니다! 빠르게 연락드리겠습니다.';
+    result.className='cf-msg success';
+    document.getElementById('cf-name').value='';
+    document.getElementById('cf-tel1').value='';
+    document.getElementById('cf-tel2').value='';
+    document.getElementById('cf-tel3').value='';
+    document.getElementById('cf-region').value='';
+    document.getElementById('cf-course').value='';
+    document.getElementById('cf-message').value='';
+    document.querySelectorAll('input[name="privacy"]').forEach(r=>r.checked=false);
+  }catch(e){
+    result.textContent='❌ 전송 중 오류가 발생했습니다. 전화(010-6830-8988)로 연락 주세요.';
+    result.className='cf-msg error';
+  }finally{
+    btn.disabled=false;
+    btnText.textContent='문의하기 →';
+  }
 }
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');}});
