@@ -630,7 +630,7 @@ footer{padding-bottom:60px;}
     <a href="#faq">FAQ</a>
     <a href="#contact" style="color:var(--gold);font-weight:700;">상담신청</a>
   </div>
-  <a href="tel:010-6830-8988" class="nc">📞 010-6830-8988</a>
+  <a href="tel:010-6830-8988" class="nc">📞 상담전화</a>
 </nav>
 
 <!-- HERO -->
@@ -1158,9 +1158,9 @@ footer{padding-bottom:60px;}
 
 <!-- BOTTOM BAR -->
 <div class="float-wrap">
-  <a href="tel:010-6830-8988" class="fb-call">
-    <div class="fb-icon">📞</div>
-    상담전화
+  <a href="#contact" class="fb-call" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">
+    <div class="fb-icon">📝</div>
+    상담신청
   </a>
   <a href="https://open.kakao.com/o/s7gSIZ5h" target="_blank" class="fb-kakao">
     <div class="fb-icon">💬</div>
@@ -1221,7 +1221,7 @@ async function submitForm(){
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body:params.toString()
     });
-    result.textContent='✅ 상담 신청이 완료되었습니다! 빠르게 연락드리겠습니다.';
+    result.innerHTML='✅ 상담 신청이 완료되었습니다! 빠르게 연락드리겠습니다.<br><small style="display:block;margin-top:8px;">📱 카카오로 빠른 확인을 원하시면 → <a href="https://open.kakao.com/o/s7gSIZ5h" target="_blank" style="color:#3b1d8e;font-weight:700;text-decoration:underline;">카카오 오픈채팅 바로가기</a></small>';
     result.className='cf-msg success';
     document.getElementById('cf-name').value='';
     document.getElementById('cf-tel1').value='';
