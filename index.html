@@ -517,6 +517,71 @@ nav{
   .cf-phone-row .cf-select{grid-column:1/-1;}
 }
 
+/* ── CUSTOMER REVIEW FORM ── */
+.crev-sec{background:#fff;padding:80px 5%;}
+.crev-wrap{max-width:900px;margin:0 auto;}
+
+/* Write form */
+.crev-form-box{
+  background:var(--off);border:1.5px solid var(--light);
+  border-radius:16px;padding:36px;margin-top:48px;
+}
+.crev-form-title{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:24px;display:flex;align-items:center;gap:8px;}
+.crev-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.crev-row.full{grid-template-columns:1fr;}
+.crev-group{display:flex;flex-direction:column;gap:6px;}
+.crev-label{font-size:0.82rem;font-weight:700;color:var(--text);}
+.crev-input,.crev-textarea{
+  border:1.5px solid var(--light);border-radius:10px;padding:12px 15px;
+  font-family:'Noto Sans KR',sans-serif;font-size:0.9rem;color:var(--text);
+  background:#fff;outline:none;width:100%;transition:border-color .2s,box-shadow .2s;
+}
+.crev-input:focus,.crev-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,0.08);}
+.crev-textarea{resize:vertical;min-height:100px;line-height:1.7;}
+.crev-stars-pick{display:flex;gap:6px;margin-top:2px;}
+.crev-stars-pick span{font-size:1.6rem;cursor:pointer;transition:transform .15s;line-height:1;color:#D1D5DB;}
+.crev-stars-pick span.on{color:#FBBF24;}
+.crev-stars-pick span:hover{transform:scale(1.2);}
+.crev-submit{
+  margin-top:6px;padding:14px 32px;border-radius:10px;
+  background:var(--navy);border:none;color:#fff;
+  font-family:'Noto Sans KR',sans-serif;font-size:0.95rem;font-weight:700;
+  cursor:pointer;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;
+}
+.crev-submit:hover{background:#1A2E4A;transform:translateY(-2px);}
+.crev-submit:disabled{background:#94A3B8;cursor:not-allowed;transform:none;}
+.crev-msg{margin-top:14px;padding:12px 16px;border-radius:10px;font-size:0.88rem;font-weight:600;display:none;}
+.crev-msg.success{background:#DCFCE7;color:#166534;border:1px solid #BBF7D0;display:block;}
+.crev-msg.error{background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;display:block;}
+
+/* Review list */
+.crev-list-title{font-size:0.95rem;font-weight:700;color:var(--text);margin:48px 0 20px;display:flex;align-items:center;gap:10px;}
+.crev-list-title .crev-count{
+  background:var(--blue);color:#fff;
+  font-size:0.72rem;font-weight:700;
+  padding:2px 9px;border-radius:20px;
+}
+.crev-list{display:flex;flex-direction:column;gap:14px;}
+.crev-item{
+  background:var(--off);border:1px solid var(--light);
+  border-radius:14px;padding:22px 24px;
+  animation:fadeInUp .4s ease both;
+}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.crev-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+.crev-item-author{font-size:0.85rem;font-weight:700;color:var(--navy);}
+.crev-item-meta{display:flex;align-items:center;gap:10px;}
+.crev-item-stars{color:#FBBF24;font-size:0.85rem;letter-spacing:1px;}
+.crev-item-date{font-size:0.76rem;color:#94A3B8;}
+.crev-item-text{font-size:0.9rem;color:#374151;line-height:1.8;}
+.crev-empty{text-align:center;padding:40px;color:var(--gray);font-size:0.9rem;}
+.crev-loading{text-align:center;padding:30px;color:var(--gray);font-size:0.9rem;}
+
+@media(max-width:640px){
+  .crev-form-box{padding:24px 18px;}
+  .crev-row{grid-template-columns:1fr;}
+}
+
 /* ── CTA ── */
 .cta-sec{
   background:var(--navy);
@@ -627,6 +692,7 @@ footer{padding-bottom:60px;}
     <a href="#curriculum">커리큘럼</a>
     <a href="#price">비용</a>
     <a href="#reviews">후기</a>
+    <a href="#review-write">후기작성</a>
     <a href="#faq">FAQ</a>
     <a href="#contact" style="color:var(--gold);font-weight:700;">상담신청</a>
   </div>
@@ -1022,6 +1088,53 @@ footer{padding-bottom:60px;}
   </div>
 </section>
 
+<!-- CUSTOMER REVIEW FORM -->
+<section class="crev-sec" id="review-write">
+  <div class="crev-wrap">
+    <div class="tag">후기 작성</div>
+    <h2 class="sec-title rev">수강 후기를<br>남겨주세요 ✍️</h2>
+    <p class="sec-sub rev">실제 수강생분들의 생생한 후기가 큰 도움이 됩니다.<br>이름은 닉네임이나 이니셜로 작성하셔도 됩니다.</p>
+
+    <div class="crev-form-box rev">
+      <div class="crev-form-title">✏️ 후기 작성하기</div>
+      <div class="crev-row">
+        <div class="crev-group">
+          <label class="crev-label">이름 (닉네임 가능)</label>
+          <input type="text" id="crev-name" class="crev-input" placeholder="예: 오산 김○○ 님">
+        </div>
+        <div class="crev-group">
+          <label class="crev-label">별점</label>
+          <div class="crev-stars-pick" id="crev-stars">
+            <span data-v="1">★</span>
+            <span data-v="2">★</span>
+            <span data-v="3">★</span>
+            <span data-v="4">★</span>
+            <span data-v="5">★</span>
+          </div>
+        </div>
+      </div>
+      <div class="crev-row full">
+        <div class="crev-group">
+          <label class="crev-label">후기 내용</label>
+          <textarea id="crev-text" class="crev-textarea" placeholder="수강 후 달라진 점, 강사님 스타일, 추천 이유 등을 자유롭게 작성해 주세요 😊"></textarea>
+        </div>
+      </div>
+      <button class="crev-submit" id="crev-btn" onclick="submitReview()">
+        <span id="crev-btn-text">후기 등록하기 →</span>
+      </button>
+      <div class="crev-msg" id="crev-result"></div>
+    </div>
+
+    <div class="crev-list-title rev">
+      💬 수강생 후기
+      <span class="crev-count" id="crev-count">0</span>
+    </div>
+    <div class="crev-list" id="crev-list">
+      <div class="crev-loading">후기를 불러오는 중...</div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="section faq-sec" id="faq">
   <div class="sec-wrap">
@@ -1239,6 +1352,145 @@ async function submitForm(){
     btnText.textContent='문의하기 →';
   }
 }
+// ── REVIEW SYSTEM (GitHub Issues API) ──
+// ⚙️ 설정: 아래 두 값을 실제 GitHub 저장소로 변경하세요
+const GITHUB_OWNER = 'YOUR_GITHUB_USERNAME';   // 예: 'mdrive8'
+const GITHUB_REPO  = 'YOUR_GITHUB_REPO';       // 예: 'mdrive-website'
+const GITHUB_TOKEN = '';  // (선택) 공개 저장소면 비워도 됩니다
+// Issues에 'review' 라벨이 붙은 것을 후기로 사용합니다
+
+let selectedStars = 5;
+
+// 별점 선택
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('#crev-stars span');
+  stars.forEach(s => {
+    s.addEventListener('mouseover', () => highlightStars(+s.dataset.v));
+    s.addEventListener('mouseout',  () => highlightStars(selectedStars));
+    s.addEventListener('click',     () => { selectedStars = +s.dataset.v; highlightStars(selectedStars); });
+  });
+  highlightStars(5);
+  loadReviews();
+});
+
+function highlightStars(n) {
+  document.querySelectorAll('#crev-stars span').forEach(s => {
+    s.classList.toggle('on', +s.dataset.v <= n);
+  });
+}
+
+async function submitReview() {
+  const name = document.getElementById('crev-name').value.trim();
+  const text = document.getElementById('crev-text').value.trim();
+  const btn  = document.getElementById('crev-btn');
+  const btnT = document.getElementById('crev-btn-text');
+  const msg  = document.getElementById('crev-result');
+
+  msg.className = 'crev-msg'; msg.style.display = 'none';
+
+  if (!name) { alert('이름(닉네임)을 입력해 주세요.'); return; }
+  if (!text || text.length < 10) { alert('후기 내용을 10자 이상 작성해 주세요.'); return; }
+
+  btn.disabled = true; btnT.textContent = '등록 중...';
+
+  const starsText = '★'.repeat(selectedStars) + '☆'.repeat(5 - selectedStars);
+  const body = `**별점:** ${starsText} (${selectedStars}/5)\n\n**후기:**\n${text}\n\n---\n*작성자: ${name} · ${new Date().toLocaleDateString('ko-KR')}*`;
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/vnd.github+json',
+  };
+  if (GITHUB_TOKEN) headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`;
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        title: `[후기] ${name} — ${starsText}`,
+        body,
+        labels: ['review']
+      })
+    });
+
+    if (res.ok) {
+      msg.textContent = '✅ 후기가 등록되었습니다! 감사합니다 😊';
+      msg.className = 'crev-msg success';
+      document.getElementById('crev-name').value = '';
+      document.getElementById('crev-text').value = '';
+      selectedStars = 5; highlightStars(5);
+      setTimeout(loadReviews, 1200);
+    } else {
+      const err = await res.json();
+      throw new Error(err.message || '등록 실패');
+    }
+  } catch(e) {
+    if (e.message && e.message.includes('Not Found')) {
+      msg.innerHTML = '⚠️ 저장소 설정이 필요합니다. <br><small>GITHUB_OWNER / GITHUB_REPO 값을 코드에서 수정해 주세요.</small>';
+    } else {
+      msg.textContent = '❌ 등록 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+    }
+    msg.className = 'crev-msg error';
+  } finally {
+    btn.disabled = false; btnT.textContent = '후기 등록하기 →';
+  }
+}
+
+async function loadReviews() {
+  const list  = document.getElementById('crev-list');
+  const count = document.getElementById('crev-count');
+  list.innerHTML = '<div class="crev-loading">후기를 불러오는 중...</div>';
+
+  const headers = { 'Accept': 'application/vnd.github+json' };
+  if (GITHUB_TOKEN) headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`;
+
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?labels=review&state=open&per_page=50&sort=created&direction=desc`,
+      { headers }
+    );
+    if (!res.ok) throw new Error('fetch fail');
+    const issues = await res.json();
+
+    if (!issues.length) {
+      list.innerHTML = '<div class="crev-empty">아직 작성된 후기가 없습니다. 첫 후기를 남겨주세요! 🙏</div>';
+      count.textContent = '0';
+      return;
+    }
+
+    count.textContent = issues.length;
+    list.innerHTML = issues.map(issue => {
+      const starsMatch = issue.body && issue.body.match(/\((\d)\/5\)/);
+      const starNum    = starsMatch ? +starsMatch[1] : 5;
+      const starsHTML  = '★'.repeat(starNum) + (starNum < 5 ? '☆'.repeat(5-starNum) : '');
+
+      // Extract text after **후기:**
+      let reviewText = '';
+      const textMatch = issue.body && issue.body.match(/\*\*후기:\*\*\n([\s\S]*?)\n\n---/);
+      if (textMatch) reviewText = textMatch[1].trim();
+      else reviewText = (issue.body || '').replace(/\*\*별점:.*\n\n\*\*후기:\*\*\n/, '').split('---')[0].trim();
+
+      // Extract author and date from footer line
+      const footerMatch = issue.body && issue.body.match(/작성자: (.+?) · (.+?)\*/);
+      const author = footerMatch ? footerMatch[1] : issue.title.replace('[후기] ','').split(' —')[0];
+      const date   = footerMatch ? footerMatch[2] : new Date(issue.created_at).toLocaleDateString('ko-KR');
+
+      return `<div class="crev-item">
+        <div class="crev-item-header">
+          <span class="crev-item-author">— ${author}</span>
+          <div class="crev-item-meta">
+            <span class="crev-item-stars">${starsHTML}</span>
+            <span class="crev-item-date">${date}</span>
+          </div>
+        </div>
+        <p class="crev-item-text">${reviewText.replace(/\n/g,'<br>')}</p>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    list.innerHTML = '<div class="crev-empty">후기를 불러올 수 없습니다. 저장소 설정을 확인해 주세요.</div>';
+  }
+}
+
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');}});
 },{threshold:0.08});
